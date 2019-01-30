@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t vince15dk/git-docker -f Dockerfile.dev .
+
+script:
+  - docker run vince15dk/git-docker npm run test -- --coverage
